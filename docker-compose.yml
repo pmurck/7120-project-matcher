@@ -1,0 +1,15 @@
+version: "3"
+services:
+  ktor:
+    build: .
+    ports:
+      - "8081:8081"
+    links:
+      - "db"
+    environment:
+      - MONGO_URI=mongodb://db:27017
+#     - PORT=xxxx y cambiar ports
+#     - MONGO_DB_NAME=xxx para usar otra base
+  db:
+    image: "mongo:latest"
+
